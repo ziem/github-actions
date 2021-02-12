@@ -23,5 +23,6 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           name: Current version
+          body: ""
           draft: false
           prerelease: false
