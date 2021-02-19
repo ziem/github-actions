@@ -14,6 +14,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Build
+        run: ./gradlew assembleDebug
   
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -21,3 +24,4 @@ jobs:
           automatic_release_tag: "latest"
           prerelease: true
           title: "Development Build"
+          files: app/build/outputs/apk/debug/app-debug.apk
