@@ -14,18 +14,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
-      - name: Tag current version
-        run: git push --delete origin current && git tag current
-        
-      - name: Create Release
-        id: create_release
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          tag_name: current
-          name: Current version
-          body: ""
-          draft: false
-          prerelease: false
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
