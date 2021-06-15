@@ -3,8 +3,6 @@ name: Release
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build:
@@ -23,5 +21,5 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: true
-          title: "Development Build"
+          title: "The latest dev build"
           files: app/build/outputs/apk/debug/app-debug.apk
